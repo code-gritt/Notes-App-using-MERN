@@ -4,7 +4,7 @@ import { MdAdd, MdClose } from "react-icons/md";
 const TagInput = ({ tags, setTags }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = () => {
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
@@ -49,16 +49,18 @@ const TagInput = ({ tags, setTags }) => {
         )}
         <div className="flex items-center gap-4 mt-3">
           <input
-            value={inputValue}
             type="text"
             className="text-sm bg-transparent border px-3 py-2 rounded outline-none"
             placeholder="Add Tags"
+            // value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
           />
 
           <button
-            onClick={() => addNewTag()}
+            onClick={() => {
+              addNewTag();
+            }}
             className="flex items-center justify-center rounded border border-blue-700 hover:bg-blue-700"
           >
             <MdAdd className="text-2xl text-blue-700 hover:text-white" />
